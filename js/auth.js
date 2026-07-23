@@ -6,15 +6,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Setup logout button if it exists
-    const logoutBtn = document.getElementById('logoutBtn');
-    if (logoutBtn) {
-        logoutBtn.addEventListener('click', (e) => {
+    const logoutBtns = document.querySelectorAll('.logout-btn');
+    logoutBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
             e.preventDefault();
             sessionStorage.removeItem('isLoggedIn');
             sessionStorage.removeItem('userName');
             window.location.href = 'index.html';
         });
-    }
+    });
 
     // Display username if element exists
     const userNameDisplay = document.getElementById('userNameDisplay');

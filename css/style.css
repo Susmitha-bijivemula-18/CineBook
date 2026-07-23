@@ -307,10 +307,29 @@ body.login-page-body {
     color: var(--primary-color);
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
     .login-container {
-        padding: 2rem;
+        padding: 2rem 1.5rem;
         margin: 1rem;
         width: calc(100% - 2rem);
+    }
+    .login-header h2 {
+        font-size: 1.7rem;
+    }
+    .login-header p {
+        font-size: 0.85rem;
+    }
+    .input-group input {
+        padding: 1rem 1rem 0.4rem;
+        font-size: 0.95rem;
+    }
+    .submit-btn {
+        padding: 0.8rem;
+        font-size: 0.95rem;
+    }
+    .options {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
     }
 }
