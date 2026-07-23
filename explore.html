@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineBook - Explore Movies</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="movies.html" class="logo">CineBook</a>
+        <ul class="nav-links">
+            <li><a href="movies.html">Home</a></li>
+            <li><a href="explore.html" class="active">Movies</a></li>
+            <li><a href="bookings.html">My Bookings</a></li>
+            <li><a href="movies.html#about">About Us</a></li>
+        </ul>
+        <div class="nav-right">
+            <span class="user-greeting">Hi, <span id="userNameDisplay">User</span></span>
+            <button class="logout-btn" id="logoutBtn">Logout</button>
+        </div>
+    </nav>
+
+    <div class="main-content" style="padding: 2rem 4rem;">
+        <!-- Search Section -->
+        <section class="search-container" id="movies-hub" style="text-align: center; margin-bottom: 3rem;">
+            <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; font-weight: 700;">Discover Movies</h2>
+            <div style="display: flex; gap: 1rem; justify-content: center; max-width: 700px; margin: 0 auto;">
+                <input type="text" class="search-input" id="searchInput" placeholder="Search for movies, e.g., Pushpa, Avengers..." style="flex: 1;">
+                <button class="btn btn-primary" id="searchBtn" style="padding: 0 2rem; border-radius: 30px; font-size: 1.1rem;">Search</button>
+            </div>
+        </section>
+
+        <!-- Vertical Grid for All Movies -->
+        <div id="exploreMovies" class="movies-grid">
+            <div class="loading">Loading massive movie collection...</div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+        <div class="footer-content">
+            <p>&copy; 2026 CineBook. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
+                <a href="#">Facebook</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/explore.js"></script>
+</body>
+</html>

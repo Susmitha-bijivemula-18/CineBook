@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineBook - Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="movies.html" class="logo">🎬 CineBook</a>
+        <ul class="nav-links">
+            <li><a href="movies.html" class="active">Home</a></li>
+            <li><a href="explore.html">Movies</a></li>
+            <li><a href="bookings.html">My Bookings</a></li>
+            <li><a href="#about">About Us</a></li>
+        </ul>
+        <div class="nav-right">
+            <span class="user-greeting">Hi, <span id="userNameDisplay">User</span></span>
+            <button class="logout-btn" id="logoutBtn">Logout</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <div class="hero-content" style="text-align: center;">
+            <h1 class="hero-title">Your Movie Night Starts Here</h1>
+            <p class="hero-subtitle">Discover the latest blockbusters, explore movies from around the world, and book your seats in just a few clicks.</p>
+            <div class="hero-buttons">
+                <a href="explore.html" class="btn btn-primary" style="padding: 1rem 2rem; font-size: 1.1rem;">Explore Movies</a>
+                <a href="bookings.html" class="btn btn-secondary" style="padding: 1rem 2rem; font-size: 1.1rem; border: 1px solid #fff; background: rgba(255,255,255,0.1); color: #fff;">Book Tickets</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-content" style="padding: 4rem;">
+        <!-- Quick Search -->
+        <section class="quick-search-section">
+            <form id="quickSearchForm" class="search-box" style="display: flex; gap: 1rem; justify-content: center; max-width: 700px; margin: 0 auto;">
+                <input type="text" class="search-input" id="quickSearchInput" placeholder="Search for movies, actors, genres..." style="flex: 1;" required>
+                <button type="submit" class="btn btn-primary" style="padding: 0 2rem; border-radius: 30px; font-size: 1.1rem;">Search</button>
+            </form>
+        </section>
+
+        <!-- Default Categories -->
+        <div id="defaultSections" style="margin-top: 5rem;">
+            <section class="movie-section">
+                <h2 class="section-title">Trending Movies</h2>
+                <div class="movies-container" id="trendingMovies">
+                    <div class="loading">Loading trending movies...</div>
+                </div>
+            </section>
+            
+            <section class="movie-section">
+                <h2 class="section-title">Popular Movies</h2>
+                <div class="movies-container" id="popularMovies">
+                    <div class="loading">Loading popular movies...</div>
+                </div>
+            </section>
+            
+            <section class="movie-section">
+                <h2 class="section-title">Top Rated</h2>
+                <div class="movies-container" id="topRatedMovies">
+                    <div class="loading">Loading top rated movies...</div>
+                </div>
+            </section>
+            
+            <section class="movie-section">
+                <h2 class="section-title">Now Playing</h2>
+                <div class="movies-container" id="nowPlayingMovies">
+                    <div class="loading">Loading now playing movies...</div>
+                </div>
+            </section>
+            
+            <section class="movie-section">
+                <h2 class="section-title">Upcoming Movies</h2>
+                <div class="movies-container" id="upcomingMovies">
+                    <div class="loading">Loading upcoming movies...</div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Why Choose CineBook? -->
+        <section id="about" class="features-section" style="margin-top: 5rem;">
+            <h2 class="section-title" style="text-align: center; border: none; font-size: 2rem;">Why Choose CineBook?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feat-icon">🎥</div>
+                    <h3>Thousands of Movies</h3>
+                    <p>Discover movies from different languages and countries.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feat-icon">🎟️</div>
+                    <h3>Easy Booking</h3>
+                    <p>Book your movie tickets in just a few clicks.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feat-icon">🔍</div>
+                    <h3>Smart Search</h3>
+                    <p>Find your favorite movies quickly and effortlessly.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feat-icon">📱</div>
+                    <h3>Book Anywhere</h3>
+                    <p>Enjoy a seamless experience on any device.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+        <div class="footer-content">
+            <p>&copy; 2026 CineBook. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
+                <a href="#">Facebook</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/movies.js"></script>
+</body>
+</html>

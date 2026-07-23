@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineBook - My Bookings</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="movies.html" class="logo">🎬 CineBook</a>
+        <ul class="nav-links">
+            <li><a href="movies.html">Home</a></li>
+            <li><a href="explore.html">Movies</a></li>
+            <li><a href="bookings.html" class="active">My Bookings</a></li>
+            <li><a href="movies.html#about">About Us</a></li>
+        </ul>
+        <div class="nav-right">
+            <span class="user-greeting">Hi, <span id="userNameDisplay">User</span></span>
+            <button class="logout-btn" id="logoutBtn">Logout</button>
+        </div>
+    </nav>
+
+    <div class="main-content" style="padding-top: 2rem;">
+        <div style="padding: 0 4rem; margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: center;">
+            <h1 style="font-size: 2.5rem; border-left: 4px solid var(--primary-color); padding-left: 1rem;">My Bookings</h1>
+            <button class="btn btn-primary" onclick="window.location.href='movies.html'">Explore Movies</button>
+        </div>
+
+        <div class="bookings-grid" id="bookingsGrid">
+            <!-- Bookings loaded dynamically -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+        <div class="footer-content">
+            <p>&copy; 2026 CineBook. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
+                <a href="#">Facebook</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/bookings.js"></script>
+</body>
+</html>
