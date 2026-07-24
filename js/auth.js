@@ -1,8 +1,11 @@
-// auth.js - Guard for protected pages
+// auth.js - Session management
 document.addEventListener('DOMContentLoaded', () => {
-    const isLoggedIn = sessionStorage.getItem('isLoggedIn');
+    let isLoggedIn = sessionStorage.getItem('isLoggedIn');
+    
+    // If no session exists, set default guest session
     if (isLoggedIn !== 'true') {
-        window.location.href = 'index.html';
+        sessionStorage.setItem('isLoggedIn', 'true');
+        sessionStorage.setItem('userName', 'Guest');
     }
 
     // Setup logout button if it exists
@@ -10,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     logoutBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
+            // Just clear session and reload splash screen on logout
             sessionStorage.removeItem('isLoggedIn');
             sessionStorage.removeItem('userName');
             window.location.href = 'index.html';
@@ -19,6 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Display username if element exists
     const userNameDisplay = document.getElementById('userNameDisplay');
     if (userNameDisplay) {
-        userNameDisplay.textContent = sessionStorage.getItem('userName') || 'User';
+        userNameDisplay.textContent = sessionStorage.getItem('userName') || 'Guest';
     }
 });

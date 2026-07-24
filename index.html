@@ -3,50 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CineBook - Login</title>
+    <title>CineBook</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: var(--bg-color, #0f172a);
+            color: white;
+            font-family: 'Outfit', sans-serif;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .splash-logo {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            animation: popIn 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+        .splash-logo span {
+            color: var(--primary-color, #ef4444);
+        }
+        .loader-container {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            animation: fadeIn 1s ease-in forwards 0.5s;
+            opacity: 0;
+        }
+        .loader {
+            box-sizing: border-box;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 4px solid rgba(239, 68, 68, 0.2);
+            border-top-color: var(--primary-color, #ef4444);
+            border-radius: 50%;
+            animation: spinner 1s linear infinite;
+        }
+        @keyframes spinner {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes popIn {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
 </head>
-<body class="login-page-body">
-    <div class="background-overlay"></div>
-    
-    <div class="login-container">
-        <div class="login-header">
-            <h2>Welcome Back</h2>
-            <p>Login to your CineBook account</p>
-        </div>
-        
-        <form class="login-form">
-            <div class="input-group">
-                <input type="text" id="username" required autocomplete="off">
-                <label for="username">Email or Username</label>
-            </div>
-            
-            <div class="input-group">
-                <input type="password" id="password" required>
-                <label for="password">Password</label>
-                <button type="button" class="toggle-password" id="togglePassword">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                </button>
-            </div>
-            
-            <div class="options">
-                <label class="remember-me">
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                    Remember me
-                </label>
-                <a href="#" class="forgot-password">Forgot Password?</a>
-            </div>
-            
-            <button type="submit" class="submit-btn">Login</button>
-        </form>
-        
-        <div class="login-footer">
-            <p>Don't have an account? <a href="#">Sign up now</a></p>
-        </div>
+<body>
+    <div class="splash-logo">
+        <span style="font-size: 4.5rem;">🎬</span> CineBook
+    </div>
+    <div class="loader-container">
+        <div class="loader"></div>
     </div>
 
-    <script src="js/script.js"></script>
+    <script>
+        // Set guest session directly and immediately
+        sessionStorage.setItem('isLoggedIn', 'true');
+        sessionStorage.setItem('userName', 'Guest');
+        
+        // Redirect to home page after animation
+        setTimeout(() => {
+            window.location.href = 'movies.html';
+        }, 2000);
+    </script>
 </body>
 </html>
