@@ -55,7 +55,6 @@ function loadBookings() {
 
 function clearAllBookings() {
     const currentUserEmail = sessionStorage.getItem('userEmail');
-    if (!currentUserEmail) return;
     
     if (confirm("Are you sure you want to remove all your previous bookings?")) {
         let allBookings = JSON.parse(localStorage.getItem('cinebook_bookings')) || [];
