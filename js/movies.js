@@ -17,6 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 async function initDashboard() {
+    renderSkeletons();
+    
     try {
         const [trending, popular, topRated, nowPlaying, upcoming] = await Promise.all([
             fetchFromAPI('/trending/movie/day'),
@@ -70,6 +72,26 @@ function createMovieCard(movie) {
             </div>
         </div>
     `;
+}
+
+function renderSkeletons() {
+    const containers = ['trendingMovies', 'popularMovies', 'topRatedMovies', 'nowPlayingMovies', 'upcomingMovies'];
+    const skeletonHTML = Array(6).fill(`
+        <div class="movie-card skeleton-card">
+            <div class="skeleton-img"></div>
+            <div class="movie-card-info" style="opacity: 1; background: transparent;">
+                <div class="skeleton-text skeleton-title"></div>
+                <div class="skeleton-text skeleton-meta"></div>
+            </div>
+        </div>
+    `).join('');
+    
+    containers.forEach(id => {
+        const container = document.getElementById(id);
+        if (container) {
+            container.innerHTML = skeletonHTML;
+        }
+    });
 }
 
 // End of movies.js

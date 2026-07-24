@@ -23,6 +23,6 @@ async function fetchFromAPI(endpoint, params = {}) {
 
 // Get full image URL
 function getImageUrl(path, size = 'w500') {
-    if (!path) return 'assets/placeholder.jpg';
+    if (!path) return 'https://placehold.co/500x750/1e293b/ffffff?text=No+Poster+Available';
     return `${IMAGE_BASE_URL}${size}${path}`;
 }
