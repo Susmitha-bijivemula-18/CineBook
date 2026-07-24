@@ -27,7 +27,10 @@
     <div class="main-content" style="padding-top: 2rem;">
         <div class="bookings-header">
             <h1 style="border-left: 4px solid var(--primary-color); padding-left: 1rem;">My Bookings</h1>
-            <button class="btn btn-primary" onclick="window.location.href='movies.html'">Explore Movies</button>
+            <div>
+                <button class="btn btn-secondary" id="clearBookingsBtn" style="margin-right: 1rem; border: 1px solid var(--primary-color); color: var(--text-color); background: transparent;" onclick="clearAllBookings()">Clear All Bookings</button>
+                <button class="btn btn-primary" onclick="window.location.href='movies.html'">Explore Movies</button>
+            </div>
         </div>
 
         <div class="bookings-grid" id="bookingsGrid">

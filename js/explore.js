@@ -122,12 +122,14 @@ function renderMovies(containerId, movies) {
     const container = document.getElementById(containerId);
     if (!container) return;
 
-    if (!movies || movies.length === 0) {
+    const validMovies = (movies || []).filter(movie => movie.poster_path);
+
+    if (validMovies.length === 0) {
         container.innerHTML = '<p>No movies found.</p>';
         return;
     }
 
-    container.innerHTML = movies.map(movie => createMovieCard(movie)).join('');
+    container.innerHTML = validMovies.map(movie => createMovieCard(movie)).join('');
 }
 
 function createMovieCard(movie) {

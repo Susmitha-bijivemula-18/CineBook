@@ -10,7 +10,10 @@ function loadBookings() {
     // Filter bookings by current user's email
     const bookings = allBookings.filter(booking => booking.userEmail === currentUserEmail);
 
+    const clearBtn = document.getElementById('clearBookingsBtn');
+    
     if (bookings.length === 0) {
+        if (clearBtn) clearBtn.style.display = 'none';
         grid.innerHTML = `
             <div style="grid-column: 1 / -1; text-align: center; padding: 4rem; background: var(--surface-color); border-radius: 12px; border: 1px solid var(--border-color);">
                 <div style="font-size: 3rem; margin-bottom: 1rem; color: var(--text-secondary);">🎫</div>
@@ -20,6 +23,8 @@ function loadBookings() {
         `;
         return;
     }
+
+    if (clearBtn) clearBtn.style.display = 'inline-block';
 
     grid.innerHTML = bookings.map(booking => {
         // Format date for display
@@ -46,4 +51,19 @@ function loadBookings() {
             </div>
         `;
     }).join('');
+}
+
+function clearAllBookings() {
+    const currentUserEmail = sessionStorage.getItem('userEmail');
+    if (!currentUserEmail) return;
+    
+    if (confirm("Are you sure you want to remove all your previous bookings?")) {
+        let allBookings = JSON.parse(localStorage.getItem('cinebook_bookings')) || [];
+        // Keep only bookings that don't belong to the current user
+        const remainingBookings = allBookings.filter(booking => booking.userEmail !== currentUserEmail);
+        localStorage.setItem('cinebook_bookings', JSON.stringify(remainingBookings));
+        
+        // Reload bookings grid
+        loadBookings();
+    }
 }
