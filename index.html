@@ -81,6 +81,33 @@
             0% { transform: translateY(150px) scale(0.8); opacity: 0; }
             100% { transform: translateY(0) scale(1); opacity: 0.35; } /* Kept subtle to not overpower logo */
         }
+        
+        .skip-btn {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            padding: 8px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+            text-decoration: none;
+            z-index: 10;
+            backdrop-filter: blur(5px);
+            transition: background 0.3s, transform 0.2s;
+            opacity: 0;
+            animation: fadeInSkip 0.5s ease-in forwards 1.5s; /* Appears after logo */
+        }
+        .skip-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+        @keyframes fadeInSkip {
+            to { opacity: 1; }
+        }
         /* Mobile phone view adjustments */
         @media (max-width: 600px) {
             .splash-logo {
@@ -94,10 +121,17 @@
                 width: 80px;
                 height: 120px;
             }
+            .skip-btn {
+                top: 20px;
+                right: 20px;
+                padding: 6px 15px;
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
 <body>
+    <a href="movies.html" class="skip-btn">Skip</a>
     <div class="posters-container">
         <!-- Wrappers allow positioning/rotation while inner element handles animation -->
         <div class="poster-wrapper" style="left: 10%; top: 15%; transform: rotate(-12deg);"><div class="poster p1"></div></div>
